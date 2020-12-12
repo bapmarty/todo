@@ -34,6 +34,7 @@ export default {
     padding: 0;
     height: 100%;
     background: linear-gradient(to left, #ED4C67, #B53471, #833471, #6F1E51);
+    user-select: none;
   }
   .container {
     display: flex;

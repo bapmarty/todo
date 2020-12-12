@@ -2,7 +2,11 @@
   <section class="todo-list">
     <input v-model="newTodo" v-on:keyup.enter="addTodo" placeholder="Add new todo">
     <ul>
-      <li v-for="todo in todos" :key="todo.name">{{ todo.name }}</li>
+      <li v-for="todo in todos" :key="todo.name">
+        <div v-on:click="todo.completed = !todo.completed" :class="{completed: todo.completed}">
+          {{ todo.name }}
+        </div>
+      </li>
     </ul>
   </section>
 </template>
@@ -55,10 +59,14 @@ export default {
       li {
         margin: 5px 0;
         padding: 0;
-        color: #EEE;
+        color: #EEEA;
         font-weight: 600;
         border-bottom: 1px solid #EEEA;
-        
+        div {
+          &.completed {
+            text-decoration: line-through;
+          }
+        }
       }
     }
   }
